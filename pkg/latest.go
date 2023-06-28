@@ -6,15 +6,19 @@ import (
 )
 
 func Latest() string {
+	var result string
 	versions, err := exec.Command("git", "tag", "-l").Output()
 	
 	if err != nil {
 		log.Fatal(err)
 	}
-	
-	version_list := RemoveLastItem(versions)
 
-	latest := version_list[len(version_list) - 1]
+	if len(versions) != 0 {
+		version_list := RemoveLastItem(versions)
+		result = version_list[len(version_list) - 1]
+	} else {
+		result = "No existing tags"
+	}
 	
-	return latest
+	return result
 }
