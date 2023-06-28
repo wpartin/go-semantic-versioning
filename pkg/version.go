@@ -1,31 +1,29 @@
 package pkg
 
 import (
+	"flag"
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
 
-func Version (branch string) string {
+func Version (branch string, tag string) string {
 	var identifier string
-	var message string
+	var new_version string
 	var version_placement int
-	var version string = "1.0.0"
-	var version_new string
+	var version string
+
+	if tag == "" {
+		version = Latest()
+	} else {
+		version = tag
+	}
 	
 	switch branch {
 	case "release":
 		identifier = "major"
 		version_placement = 0
-		
-		vStr := strings.Split(version, ".")[version_placement]
-		v, err := strconv.ParseInt(vStr, 10, 0)
-
-		if err != nil {
-			fmt.Println("Error during type conversion.")
-			return "failure"
-		}
-		fmt.Println(v)
 	case "feature":
 		identifier = "minor"
 		version_placement = 1
@@ -36,16 +34,25 @@ func Version (branch string) string {
 		identifier = "patch"
 		version_placement = 2
 	default:
-		message = "You didn't include a proper branch name!"
+		fmt.Println("\nYou didn't include a proper branch name!")
+		fmt.Println("")
+		flag.Usage()
+		os.Exit(2)
 	}
 
-	message = fmt.Sprintf("Incrementing %s version. v%s becomes v%s", identifier, version, version_new)
-
-	if message != "You didn't include a proper branch name!" {
-		fmt.Println(message, identifier, version_placement)
-		return "success"
-	} else {
-		fmt.Println(message)
-		return "error"
+	ver_array := strings.Split(strings.Split(version, "v")[1], ".")
+	new_ver, err := strconv.Atoi(ver_array[version_placement])
+	
+	if err != nil {
+		panic(err)
 	}
+
+	ver_array[version_placement] = strconv.Itoa(new_ver + 1)
+	new_version = "v" + strings.Join(ver_array, ".")
+
+	fmt.Printf("\nIncrementing the %s %s version.\n\n%s ➜ %s\n", version, identifier, version, new_version)
+
+	Increment(new_version)	
+
+	return "success"
 }
