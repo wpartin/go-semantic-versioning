@@ -50,7 +50,7 @@ func Version (branch string, tag string) string {
 	ver_array[version_placement] = strconv.Itoa(new_ver + 1)
 	new_version = "v" + strings.Join(ver_array, ".")
 
-	fmt.Printf("\nIncrementing the %s %s version.\n\n%s ➜ %s\n", version, identifier, version, new_version)
+	fmt.Printf("\nIncrementing the %s %s version.\n\n%s ➜ %s\n\n", version, identifier, version, new_version)
 
 	Increment(new_version)	
 
