@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strconv"
-	"strings"
 )
 
 func Version (branch string, tag string) string {
@@ -41,15 +39,7 @@ func Version (branch string, tag string) string {
 	}
 
 	if version != "No existing tags" {
-		ver_array := strings.Split(strings.Split(version, "v")[1], ".")
-		new_ver, err := strconv.Atoi(ver_array[version_placement])
-		
-		if err != nil {
-			panic(err)
-		}
-
-		ver_array[version_placement] = strconv.Itoa(new_ver + 1)
-		new_version = "v" + strings.Join(ver_array, ".")
+		new_version = DefineNewVersion(version, version_placement)
 
 		fmt.Printf("\nIncrementing the %s %s version. (latest) \n\n%s ➜ %s\n\n", version, identifier, version, new_version)
 
@@ -57,15 +47,7 @@ func Version (branch string, tag string) string {
 	} else {
 		version = "v0.0.0"
 
-		ver_array := strings.Split(strings.Split(version, "v")[1], ".")
-		new_ver, err := strconv.Atoi(ver_array[version_placement])
-		
-		if err != nil {
-			panic(err)
-		}
-
-		ver_array[version_placement] = strconv.Itoa(new_ver + 1)
-		new_version = "v" + strings.Join(ver_array, ".")
+		new_version = DefineNewVersion(version, version_placement)
 
 		fmt.Printf("\nNo existing tags found. Creating an initial version ➜ %s.\n\n", new_version)
 
