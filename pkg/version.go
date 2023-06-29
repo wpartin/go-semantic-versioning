@@ -55,7 +55,7 @@ func Version (branch string, tag string) string {
 
 		Increment(new_version)	
 	} else {
-		new_version = "v0.0.0"
+		version = "v0.0.0"
 
 		ver_array := strings.Split(strings.Split(version, "v")[1], ".")
 		new_ver, err := strconv.Atoi(ver_array[version_placement])
