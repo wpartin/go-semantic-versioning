@@ -25,10 +25,7 @@ func Version (branch string, tag string) string {
 	case "feature":
 		identifier = "minor"
 		version_placement = 1
-	case "bugfix":
-		identifier = "patch"
-		version_placement = 2
-	case "hotfix":
+	case "bugfix", "hotfix":
 		identifier = "patch"
 		version_placement = 2
 	default:
@@ -38,12 +35,18 @@ func Version (branch string, tag string) string {
 		os.Exit(2)
 	}
 
-	if version != "No existing tags" {
+	if version != "No existing tags" && tag == "" {
 		new_version = DefineNewVersion(version, version_placement)
 
 		fmt.Printf("\nIncrementing the %s %s version. (latest) \n\n%s ➜ %s\n\n", version, identifier, version, new_version)
 
 		Increment(new_version)	
+	} else if tag != "" {
+		new_version = DefineNewVersion(tag, version_placement)
+
+		fmt.Printf("\nIncrementing the %s %s version. (tag) \n\n%s ➜ %s\n\n", tag, identifier, tag, new_version)
+
+		Increment(new_version)
 	} else {
 		version = "v0.0.0"
 
