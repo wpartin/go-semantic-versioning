@@ -13,7 +13,7 @@ func Version (branch string, tag string) string {
 	var version string
 
 	if tag == "" {
-		version = Latest()
+		version = GetLatestTag()
 	} else {
 		version = tag
 	}
@@ -40,13 +40,13 @@ func Version (branch string, tag string) string {
 
 		fmt.Printf("\nIncrementing the %s %s version. (latest) \n\n%s ➜ %s\n\n", version, identifier, version, new_version)
 
-		Increment(new_version)	
+		IncrementVersion(new_version)	
 	} else if tag != "" {
 		new_version = DefineNewVersion(tag, version_placement)
 
 		fmt.Printf("\nIncrementing the %s %s version. (tag) \n\n%s ➜ %s\n\n", tag, identifier, tag, new_version)
 
-		Increment(new_version)
+		IncrementVersion(new_version)
 	} else {
 		version = "v0.0.0"
 
@@ -54,7 +54,7 @@ func Version (branch string, tag string) string {
 
 		fmt.Printf("\nNo existing tags found. Creating an initial version ➜ %s.\n\n", new_version)
 
-		Increment(new_version)
+		IncrementVersion(new_version)
 	}
 
 	return "success"

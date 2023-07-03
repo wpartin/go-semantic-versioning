@@ -5,7 +5,7 @@ import (
 	"os/exec"
 )
 
-func Latest() string {
+func GetLatestTag() string {
 	var result string
 	versions, err := exec.Command("git", "tag", "-l").Output()
 	
