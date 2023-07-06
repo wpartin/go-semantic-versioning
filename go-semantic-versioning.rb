@@ -33,7 +33,7 @@ class GoSemanticVersioning < Formula
       sha256 "e7e74fcca1d143a6b56b67c287e9a6825dbef5fab0d9dceae392fbcc75ce7482"
 
       def install
-        bin.install "\go-semantic-release\"
+        bin.install "go-semantic-release"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
@@ -41,7 +41,7 @@ class GoSemanticVersioning < Formula
       sha256 "00b74d0bcf6049f517f1d08e60f5f3b41817cdfc15e48e386f7810784b8347d1"
 
       def install
-        bin.install "\go-semantic-release\"
+        bin.install "go-semantic-release"
       end
     end
   end
