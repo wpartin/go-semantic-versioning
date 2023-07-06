@@ -15,11 +15,11 @@ func main () {
 
 	flag.Parse()
 
-	if !pkg.IsFlagPresent("branch") {
+	if *version {
+		fmt.Printf("go-semantic-versioning %s", pkg.GetLatestTag())
+	} else if !pkg.IsFlagPresent("branch") {
 		flag.Usage()
 		os.Exit(2)
-	} else if *version {
-		fmt.Printf("go-semantic-versioning %s", pkg.GetLatestTag())
 	} else {
 		fmt.Println("\nStarting go-semantic-versioning.")
 
