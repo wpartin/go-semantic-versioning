@@ -48,7 +48,7 @@ brews:
       name: westonpartin
       email: djwest91@gmail.com
     homepage: "https://github.com/wpartin/go-semantic-versioning"
-    # install: bin.install "\go-semantic-release\"
+    install: bin.install \"go-semantic-versioning\"
     license: "MIT"
     repository:
       owner: wpartin
