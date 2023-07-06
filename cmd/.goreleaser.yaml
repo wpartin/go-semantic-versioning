@@ -42,15 +42,15 @@ changelog:
 # Feel free to remove those if you don't want/use them.
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
-brews:
-  - description: "Tag your repository with Go!"
-    commit_author:
-      name: westonpartin
-      email: djwest91@gmail.com
-    homepage: "https://github.com/wpartin/go-semantic-versioning"
-    install: bin.install "\go-semantic-release\"
-    license: "MIT"
-    repository:
-      owner: wpartin
-      name: go-semantic-versioning
-    skip_upload: auto
+# brews:
+#   - description: "Tag your repository with Go!"
+#     commit_author:
+#       name: westonpartin
+#       email: djwest91@gmail.com
+#     homepage: "https://github.com/wpartin/go-semantic-versioning"
+#     install: bin.install "\go-semantic-release\"
+#     license: "MIT"
+#     repository:
+#       owner: wpartin
+#       name: go-semantic-versioning
+#     skip_upload: auto
