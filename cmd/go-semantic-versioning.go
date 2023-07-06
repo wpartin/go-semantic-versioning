@@ -17,6 +17,7 @@ func main () {
 
 	if *version {
 		fmt.Printf("go-semantic-versioning %s", pkg.GetLatestTag())
+		fmt.Println()
 	} else if !pkg.IsFlagPresent("branch") {
 		flag.Usage()
 		os.Exit(2)

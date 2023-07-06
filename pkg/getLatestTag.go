@@ -7,7 +7,7 @@ import (
 
 func GetLatestTag() string {
 	var result string
-	versions, err := exec.Command("git", "tag", "-l").Output()
+	versions, err := exec.Command("git", "tag", "-l", "--sort=v:refname").Output()
 	
 	if err != nil {
 		log.Fatal(err)
