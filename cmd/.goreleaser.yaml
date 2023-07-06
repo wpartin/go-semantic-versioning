@@ -45,7 +45,7 @@ changelog:
 brews:
   - repository:
       owner: wpartin
-      name: wpartin/go-semantic-versioning
+      name: go-semantic-versioning
     commit_author:
       name: westonpartin
       email: djwest91@gmail.com
