@@ -43,9 +43,9 @@ changelog:
 # yaml-language-server: $schema=https://goreleaser.com/static/schema.json
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
 brews:
-  - tap:
+  - repository:
       owner: wpartin
-      name: tap
+      name: wpartin/go-semantic-versioning
     commit_author:
       name: westonpartin
       email: djwest91@gmail.com
