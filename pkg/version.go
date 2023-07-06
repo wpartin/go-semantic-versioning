@@ -57,5 +57,5 @@ func Version (branch string, tag string) string {
 		IncrementVersion(new_version)
 	}
 
-	return "success"
+	return new_version
 }
