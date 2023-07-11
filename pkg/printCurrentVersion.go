@@ -6,7 +6,7 @@ import (
 )
 
 func PrintCurrentVersion () {
-	output := exec.Command("brew", "list", "--versions", "go-semantic-release").Run()
+	output := exec.Command("brew", "list", "--versions", "go-semantic-versioning").Run()
 
 	fmt.Println(output)
 }

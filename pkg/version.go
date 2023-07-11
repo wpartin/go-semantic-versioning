@@ -36,13 +36,13 @@ func Version (branch string, tag string) string {
 	}
 
 	if version != "No existing tags" && tag == "" {
-		new_version = DefineNewVersion(version, version_placement)
+		new_version = DefineNewVersion(branch, version, version_placement)
 
 		fmt.Printf("\nIncrementing the %s %s version. (latest) \n\n%s ➜ %s\n\n", version, identifier, version, new_version)
 
 		IncrementVersion(new_version)	
 	} else if tag != "" {
-		new_version = DefineNewVersion(tag, version_placement)
+		new_version = DefineNewVersion(branch, tag, version_placement)
 
 		fmt.Printf("\nIncrementing the %s %s version. (tag) \n\n%s ➜ %s\n\n", tag, identifier, tag, new_version)
 
@@ -50,7 +50,7 @@ func Version (branch string, tag string) string {
 	} else {
 		version = "v0.0.0"
 
-		new_version = DefineNewVersion(version, version_placement)
+		new_version = DefineNewVersion(branch, version, version_placement)
 
 		fmt.Printf("\nNo existing tags found. Creating an initial version ➜ %s.\n\n", new_version)
 
