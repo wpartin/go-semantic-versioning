@@ -6,7 +6,8 @@ import (
 )
 
 func CreateRelease (choice bool, version string) {
-	fmt.Printf("\nCreating release for %s.", version)
+	fmt.Printf("Creating release for %s.", version)
+	fmt.Println()
 
 	exec.Command("goreleaser", "release", "--clean").Run()
 }

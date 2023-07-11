@@ -17,7 +17,6 @@ func main () {
 
 	if *version {
 		pkg.PrintCurrentVersion()
-		fmt.Println()
 	} else if !pkg.IsFlagPresent("branch") {
 		flag.Usage()
 		os.Exit(2)
