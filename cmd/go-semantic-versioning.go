@@ -9,16 +9,13 @@ import (
 
 func main () {
 	branch := flag.String("branch", "", "[REQUIRED] The branch to initate versioning from; release, feature, bugfix, hotfix.")
-	release := flag.String("gh-release", "", "[OPTIONAL] Create a GitHub Release with the new tag. Must have gh cli installed for this to work. Set true to use.")
+	release := flag.Bool("release", false, "[OPTIONAL] Create a GitHub Release with the new tag. Must have gh cli installed for this to work.")
 	tag := flag.String("tag", "", "[OPTIONAL] The tag for a previous release that you want to increment. Must use the following pattern: \"v#.#.#\"")
-	version := flag.Bool("version", false, "[OPTIONAL] Check the current version.")
+
 
 	flag.Parse()
 
-	if *version {
-		fmt.Printf("go-semantic-versioning %s", pkg.GetLatestTag())
-		fmt.Println()
-	} else if !pkg.IsFlagPresent("branch") {
+	if !pkg.IsFlagPresent("branch") {
 		flag.Usage()
 		os.Exit(2)
 	} else {
@@ -26,6 +23,8 @@ func main () {
 
 		version := pkg.Version(*branch, *tag)
 
-		pkg.CreateRelease(*release, version)
+		if *release {
+			pkg.CreateRelease(*release, version)
+		}
 	}
 }
