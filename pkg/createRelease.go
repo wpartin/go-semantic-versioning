@@ -8,5 +8,5 @@ import (
 func CreateRelease (choice bool, version string) {
 	fmt.Printf("\nCreating release for %s.", version)
 
-	exec.Command("gh", "release", "create", version).Run()
+	exec.Command("goreleaser", "release", "--clean").Run()
 }
