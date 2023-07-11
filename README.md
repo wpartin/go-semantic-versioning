@@ -11,4 +11,4 @@ The idea behind this project is to have a clean, trunk-based repository for your
 Create feature/* branch off of master -> make code changes -> create a Pull Request for review -> merge kicks off a CI/CD tool that you use -> that tool runs this one as a step -> the tool creates your tag and applies it to that point of the repository
 
 # 🎁 Extras
-If you have goreleaser installed, you can use the -release flag to use that to create your release on GitHub.
+If you have goreleaser installed, you can use the -release flag to create your release on GitHub.
