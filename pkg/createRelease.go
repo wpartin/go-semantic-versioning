@@ -9,6 +9,7 @@ import (
 func CreateRelease (choice bool, version string) {
 	fmt.Printf("Creating release for %s.", version)
 	fmt.Println()
+	fmt.Println()
 
 	cmd := exec.Command("goreleaser", "release", "--clean")
 
@@ -24,7 +25,7 @@ func CreateRelease (choice bool, version string) {
 	}
 
 	cmd.Start()
-	
+
 	scannerErr := bufio.NewScanner(stderr)
 	scannerOut := bufio.NewScanner(stdout)
 
