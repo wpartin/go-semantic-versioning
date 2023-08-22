@@ -29,7 +29,5 @@ func DefineNewVersion (branch string, version string, version_placement int) str
 		new_version = "v" + strings.Join(ver_array, ".")
 	}
 
-	
-
 	return new_version
 }
