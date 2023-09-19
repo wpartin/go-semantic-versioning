@@ -25,6 +25,6 @@ func main () {
 
 		version := pkg.Version(*branch, *tag)
 
-		if *release { pkg.CreateRelease(version) }
+		if *release || *branch == "release" { pkg.CreateRelease(version) }
 	}
 }
