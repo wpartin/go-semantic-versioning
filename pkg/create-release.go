@@ -6,23 +6,13 @@ import (
 	"os/exec"
 )
 
-func CreateRelease (choice bool, version string) {
-	fmt.Printf("Creating release for %s.", version)
-	fmt.Println()
-	fmt.Println()
+func CreateRelease (version string) {
+	fmt.Printf("Creating release for %s.\n\n", version)
 
 	cmd := exec.Command("goreleaser", "release", "--clean")
 
-	stderr,	err := cmd.StderrPipe()
-	stdout, outErr := cmd.StdoutPipe()
-
-	if err != nil {
-		panic(err)
-	}
-
-	if outErr != nil {
-		panic(outErr)
-	}
+	stderr,	err := cmd.StderrPipe(); if err != nil { panic(err) }
+	stdout, outErr := cmd.StdoutPipe(); if outErr != nil { panic(outErr) }
 
 	cmd.Start()
 
