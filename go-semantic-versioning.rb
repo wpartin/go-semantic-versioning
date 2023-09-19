@@ -5,21 +5,21 @@
 class GoSemanticVersioning < Formula
   desc "Tag your repository with Go!"
   homepage "https://github.com/wpartin/go-semantic-versioning"
-  version "0.5.16"
+  version "0.5.17"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.16/go-semantic-versioning_Darwin_arm64.tar.gz"
-      sha256 "78220579efe75611c35ef2d2ea2ef850374eab50061baf4f2b155b1f1fb22c4d"
+      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.17/go-semantic-versioning_Darwin_arm64.tar.gz"
+      sha256 "4443101e585d7d896131acc85a115b6140d3da649cce2ee9acd0a966d759c540"
 
       def install
         bin.install "go-semantic-versioning"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.16/go-semantic-versioning_Darwin_x86_64.tar.gz"
-      sha256 "98b57655401f2fa08cb1352a15f2bd9ef7b4beae5e65b5ba6f27b4b4068c7c7f"
+      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.17/go-semantic-versioning_Darwin_x86_64.tar.gz"
+      sha256 "927e5785b0197752befe7975b62b3d7905b3c6e01836944e80631f7f40d3ab19"
 
       def install
         bin.install "go-semantic-versioning"
@@ -29,16 +29,16 @@ class GoSemanticVersioning < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.16/go-semantic-versioning_Linux_arm64.tar.gz"
-      sha256 "b1789e293458473fedbcd170166eff97f5e05548e32a6cf6f75af31948a5dd1c"
+      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.17/go-semantic-versioning_Linux_arm64.tar.gz"
+      sha256 "38eabf96b4c37088004f7df3bf30d53503f505f31e971a4a5f4c3d34b2f57e1d"
 
       def install
         bin.install "go-semantic-versioning"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.16/go-semantic-versioning_Linux_x86_64.tar.gz"
-      sha256 "ff5ca51b2467204929fb04d1238207667659fcd93c5294e46ac6a1c60b8784bf"
+      url "https://github.com/wpartin/go-semantic-versioning/releases/download/v0.5.17/go-semantic-versioning_Linux_x86_64.tar.gz"
+      sha256 "a5d0382498da36d3effda71f6d40551ee02d0c44c47f78a034543b98a408eb2c"
 
       def install
         bin.install "go-semantic-versioning"
